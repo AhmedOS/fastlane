@@ -31,7 +31,7 @@ module Fastlane
           command << " --use-script-input-files"
         end
 
-        command << " > #{params[:output_file].shellescape}" if params[:output_file]
+        command << " > #{File.expand_path(params[:output_file]).shellescape}" if params[:output_file]
 
         begin
           Actions.sh(command)
